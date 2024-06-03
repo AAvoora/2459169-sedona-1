@@ -668,12 +668,16 @@ body{
 }
 
 .catalog-filter-group{
-  width: 151px;
+  max-width: 288px;
   margin: 0;
   padding: 0;
   border: 0;
   margin-right: 70px;
 
+}
+
+.catalog-filter .catalog-filter-group:nth-child(2){
+  margin-right: 140px;
 }
 
 .inner-background{
@@ -723,7 +727,7 @@ body{
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  text-align: center;
+  text-align: start;
   padding: 0;
   margin-bottom: 32px;
 }
@@ -759,31 +763,86 @@ body{
   left: 0px;
   background-color: #ffffff;
   border-radius: 4px;
+}
+
+.control-mark::before{
+  content: "";
+  position: absolute;
+  display: none;
+  width: 20px;
+  height: 20px;
+  top: 1px;
+  left: 0px;
   background-image: url("../images/catalog/check-mark.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.control-input[type="radio"] + .control-mark {
+.control-mark-radio{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 1px;
+  left: 0px;
+  background-color: #ffffff;
   border-radius: 50%;
 }
 
+.control-mark-radio::before{
+  content: "";
+  position: absolute;
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/catalog/check-radio.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.control-input[type="radio"]:checked + .control-mark-radio::before, .control-input[type="checkbox"]:checked + .control-mark::before {
+  display: block;
+}
+
 /* .range-bar */
+.range{
+  width: 288px;
+  box-sizing: border-box;
+}
+
 .range-wrapper-inputs{
   display: flex;
   margin-bottom: 36px;
 }
 
+.catalog-filter-lable{
+  width: 143px;
+}
+
+.range-input{
+  width: 143px;
+  margin: 0;
+  padding: 12px 20px;
+  border: none;
+  appearance: textfield;
+}
+
+.range-input::-webkit-outer-spin-button,
+.range-input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
 .range-scale{
   position: relative;
   height: 4px;
-  background-color: #ffffff;
+  background-color: rgba(237, 237, 237, 0.2);
+  width: 287px;
 }
 
 .range-bar{
   position: absolute;
   height: 4px;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 .range-toggle{
@@ -806,12 +865,12 @@ body{
 
 .toggle-min{
   top: -8px;
-  left: -200px;
+  left: 0px;
 }
 
 .toggle-max{
   top: -8px;
-  right: 61px;
+  right: 0px;
 }
 
 .button-form-filter{
